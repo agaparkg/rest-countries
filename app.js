@@ -1,5 +1,5 @@
 import { getCountries } from "./getCountries.js";
-import { getCurrencyRates } from "./getRates.js";
+import { rates } from "./getRates.js";
 
 const spinner = document.querySelector("#spinner");
 const main = document.querySelector("main");
@@ -11,11 +11,6 @@ const nextBtn = document.querySelector("#next");
 let countries = [];
 let currIndex = 0;
 let totalCountries;
-let rates = {};
-
-getCurrencyRates().then((data) => {
-  rates = data;
-});
 
 // .then version
 getCountries().then((data) => {
