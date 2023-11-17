@@ -7,17 +7,11 @@ let infoEl = document.querySelector("#info");
 let search = document.querySelector("#search");
 const prevBtn = document.querySelector("#previous");
 const nextBtn = document.querySelector("#next");
-// const showExerciseBtn = document.querySelector("#exercise");
-// const exerciseSection = document.querySelector(".exercise-section");
 
 let countries = [];
 let currIndex = 0;
 let totalCountries;
 let rates = {};
-
-// 2 options to fetch data: fetch, axios
-
-// CRUD: CREATE, READ, UPDATE, DELETE
 
 getCurrencyRates().then((data) => {
   rates = data;
@@ -122,12 +116,3 @@ nextBtn.addEventListener("click", (e) => {
 search.addEventListener("keyup", (e) => {
   console.log(e.target.value);
 });
-
-// async/await
-// async function fetchData() {
-//   const data = await getCountries();
-
-//   console.log(data);
-// }
-
-// fetchData();
