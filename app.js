@@ -1,4 +1,5 @@
 import { getCountries } from "./getCountries.js";
+import { getCurrencyRates } from "./getRates.js";
 
 const spinner = document.querySelector("#spinner");
 const main = document.querySelector("main");
@@ -11,14 +12,20 @@ const nextBtn = document.querySelector("#next");
 let countries = [];
 let currIndex = 0;
 let totalCountries;
+let rates = {};
 
 // 2 options to fetch data: fetch, axios
 
 // CRUD: CREATE, READ, UPDATE, DELETE
 
+getCurrencyRates().then((data) => {
+  rates = data;
+});
+
 // .then version
 getCountries().then((data) => {
-  countries = data.slice(0, 10);
+  //   countries = data.slice(0, 10);
+  countries = data;
   totalCountries = countries.length;
 
   setTimeout(() => {
