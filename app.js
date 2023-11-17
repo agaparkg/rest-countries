@@ -10,6 +10,7 @@ const nextBtn = document.querySelector("#next");
 
 let countries = [];
 let currIndex = 0;
+let totalCountries;
 
 // 2 options to fetch data: fetch, axios
 
@@ -17,7 +18,8 @@ let currIndex = 0;
 
 // .then version
 getCountries().then((data) => {
-  countries = data;
+  countries = data.slice(0, 10);
+  totalCountries = countries.length;
 
   setTimeout(() => {
     spinner.style.display = "none";
@@ -88,11 +90,23 @@ function singleCountryClick(e) {
 }
 
 prevBtn.addEventListener("click", (e) => {
-  console.log(e.target.id);
+  if (currIndex > 0) {
+    currIndex--;
+    const oldSelectedClassEl = document.querySelector(".selected");
+    oldSelectedClassEl.classList.remove("selected");
+    oldSelectedClassEl.previousElementSibling.classList.add("selected");
+    displayCountryInfo(countries[currIndex]);
+  }
 });
 
 nextBtn.addEventListener("click", (e) => {
-  console.log(e.target.id);
+  if (currIndex !== totalCountries - 1) {
+    currIndex++;
+    const oldSelectedClassEl = document.querySelector(".selected");
+    oldSelectedClassEl.classList.remove("selected");
+    oldSelectedClassEl.nextElementSibling.classList.add("selected");
+    displayCountryInfo(countries[currIndex]);
+  }
 });
 
 // async/await
