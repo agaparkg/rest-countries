@@ -46,7 +46,7 @@ function displayCountryInfo(country) {
     flags: { png },
   } = country;
 
-  const firstCurr = Object.keys(currencies)[0];
+  const firstCurr = Object.keys(currencies)[0]; // XOF
 
   infoEl.innerHTML = `
           <img src="${png}" alt="" />
@@ -54,7 +54,9 @@ function displayCountryInfo(country) {
           <p>Population: <strong>${population.toLocaleString()}</strong></p>
           <p>Capital city: <strong>${capital[0]}</strong></p>
           <p>Region: <strong>${region}</strong></p>
-          <p>Currency: <strong>1 USD = ? ${firstCurr}</strong></p>
+          <p>Currency: <strong>1 USD = ${rates[firstCurr].toFixed(
+            2
+          )} ${firstCurr}</strong></p>
         `;
 }
 
