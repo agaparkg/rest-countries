@@ -4,6 +4,7 @@ import { getCurrencyRates } from "./getRates.js";
 const spinner = document.querySelector("#spinner");
 const main = document.querySelector("main");
 let infoEl = document.querySelector("#info");
+let search = document.querySelector("#search");
 const prevBtn = document.querySelector("#previous");
 const nextBtn = document.querySelector("#next");
 // const showExerciseBtn = document.querySelector("#exercise");
@@ -116,6 +117,10 @@ nextBtn.addEventListener("click", (e) => {
     oldSelectedClassEl.nextElementSibling.classList.add("selected");
     displayCountryInfo(countries[currIndex]);
   }
+});
+
+search.addEventListener("keyup", (e) => {
+  console.log(e.target.value);
 });
 
 // async/await
