@@ -1,3 +1,5 @@
+import { getCountries } from "./getCountries.js";
+
 const prevBtn = document.querySelector("#previous");
 const nextBtn = document.querySelector("#next");
 const spinner = document.querySelector("#spinner");
@@ -8,29 +10,24 @@ let infoEl = document.querySelector("#info");
 
 let countries = [];
 
-async function fetchData1() {
-  const url = "https://restcountries.com/v3.1/all";
-
-  // async/await
-
-  //   const resp = await fetch(url); // methods: GET, DELETE, PATCH, POST,...
-  const resp = await axios.get(url); // methods: GET, DELETE, PATCH, POST,...
-  const data = await resp.json();
-
-  console.log(data);
-}
+// 2 options to fetch data: fetch, axios
 
 // CRUD: CREATE, READ, UPDATE, DELETE
 
-const fetchData2 = async () => {
-  const url = "https://restcountries.com/v3.1/all";
+// .then version
+getCountries().then((data) => {
+  countries = data;
 
-  // async/await
-  const resp = await fetch(url); // methods: GET, DELETE, PATCH, POST,...
-  const data = await resp.json();
+  setTimeout(() => {
+    spinner.style.display = "none";
+  }, 1000);
+});
 
-  console.log(data);
-};
+// async/await
+// async function fetchData() {
+//   const data = await getCountries();
 
-fetchData1();
-fetchData2();
+//   console.log(data);
+// }
+
+// fetchData();
