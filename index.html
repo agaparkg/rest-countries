@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h3>List of Countries</h3>
+    </header>
+    <section>
+      <div class="left side-btns">
+        <i id="previous" class="fa fa-arrow-left"></i>
+      </div>
+      <div class="middle fade">
+        <div id="spinner">
+          <i class="fa fa-spinner fa-spin"></i>
+        </div>
+        <div id="info">
+          <!-- <img src="https://flagcdn.com/w320/bf.png" alt="" />
+          <p>Country: <strong>Burkina Faso</strong></p>
+          <p>Population: <strong>20903278</strong></p>
+          <p>Capital city: <strong>Ouagadougou</strong></p>
+          <p>Region: <strong>Africa</strong></p> -->
+        </div>
+      </div>
+      <div class="right side-btns">
+        <i id="next" class="fa fa-arrow-right"></i>
+      </div>
+    </section>
+    <main>
+      <!-- <div id="1">
+        <p><strong>Burkina Faso</strong></p>
+        <img src="https://flagcdn.com/w320/bf.png" alt="" />
+      </div> -->
+      <p>Loading...</p>
+    </main>
+    <div class="parent">
+      <button id="exercise">Show Exercises</button>
+    </div>
+    <section class="exercise-section">
+      <!-- Table goes here -->
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
